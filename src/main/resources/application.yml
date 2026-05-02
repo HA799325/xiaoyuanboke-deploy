@@ -1,0 +1,48 @@
+# Tomcat
+server:
+    tomcat:
+        uri-encoding: UTF-8
+    port: 8080
+    servlet:
+        context-path: /xiaoyuanboke
+spring:
+    datasource:
+        driverClassName: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://tramway.proxy.rlwy.net:31595/railway?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
+        username: root
+        password: efRmCiiFXVZbnUZZEpNTARsDBpJmZThw
+
+
+
+    servlet:
+      multipart:
+        max-file-size: 300MB
+        max-request-size: 300MB
+    resources:
+      static-locations: classpath:static/,file:static/
+
+#mybatis
+mybatis-plus:
+  mapper-locations: classpath*:mapper/*.xml
+  #实体扫描，多个package用逗号或者分号分隔
+  typeAliasesPackage: com.cl.entity
+  global-config:
+
+    id-type: 1
+
+    field-strategy: 1
+    #驼峰下划线转换
+    db-column-underline: true
+    #刷新mapper 调试神器
+    refresh-mapper: true
+    #逻辑删除配置
+    logic-delete-value: -1
+    logic-not-delete-value: 0
+    #自定义SQL注入器
+    sql-injector: com.baomidou.mybatisplus.mapper.LogicSqlInjector
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+    call-setters-on-nulls: true
+
+    jdbc-type-for-null: 'null' 
